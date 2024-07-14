@@ -17,7 +17,7 @@ const ipfs = create({
 async function uploadImageToIPFS(imagePath) {
   try {
     const file = await fs.readFile(imagePath);
-    const result = await ipfs.add({ path: imagePath, content: file });
+    const result = await ipfs.add(file);
     console.log(`File uploaded successfully. CID: ${result.cid}`);
     return result.cid.toString();
   } catch (error) {
