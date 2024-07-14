@@ -1,0 +1,28 @@
+{
+  "name": "東京タワー",
+  "description": "東京タワーは港区にある高さ333mのタワーです",
+  "image": "ipfs://Qmc4cqJYgHERT7bL2irQo8NsVT1jwwfT4bmhsDtPzPEYwW",
+  "external_url": "https://example.com/attractions/東京タワー",
+  "attributes": [
+    {
+      "trait_type": "Location",
+      "value": "日本, 東京"
+    },
+    {
+      "trait_type": "Number of Attractions",
+      "value": 3
+    },
+    {
+      "trait_type": "Attraction 1",
+      "value": "劇場"
+    },
+    {
+      "trait_type": "Attraction 2",
+      "value": "ショッピング"
+    },
+    {
+      "trait_type": "Attraction 3",
+      "value": "展望台"
+    }
+  ]
+}
