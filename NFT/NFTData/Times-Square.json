@@ -1,7 +1,28 @@
 {
   "name": "タイムズスクエア",
-  "location": "アメリカ, ニューヨーク",
   "description": "タイムズスクエアはニューヨーク市のマンハッタンにある繁華街で、ネオン広告や劇場、イベントで有名です。",
   "image": "ipfs:/QmT562ivx77mzovrZELhojmBa89APnRZKmwVS97ewjNpqz",
-  "attractions": ["劇場", "ショッピング", "レストラン"]
+  "external_url": "https://example.com/attractions/タイムズスクエア",
+  "attributes": [
+    {
+      "trait_type": "Location",
+      "value": "アメリカ, ニューヨーク"
+    },
+    {
+      "trait_type": "Number of Attractions",
+      "value": 3
+    },
+    {
+      "trait_type": "Attraction 1",
+      "value": "劇場"
+    },
+    {
+      "trait_type": "Attraction 2",
+      "value": "ショッピング"
+    },
+    {
+      "trait_type": "Attraction 3",
+      "value": "レストラン"
+    }
+  ]
 }

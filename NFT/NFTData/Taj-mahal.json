@@ -1,7 +1,28 @@
 {
   "name": "タージ・マハル",
-  "location": "インド, アーグラ",
   "description": "タージ・マハルは、ムガル皇帝シャー・ジャハーンが妻ムムターズ・マハルのために建てた美しい白大理石の霊廟です。",
   "image": "ipfs://QmQNyGxYEvLjt4ZaN3N7tLWp5Wc8ADe3dZvtsVMpVxkAGV",
-  "attractions": ["庭園", "大理石の彫刻", "歴史的ガイドツアー"]
+  "external_url": "https://example.com/attractions/タージ・マハル",
+  "attributes": [
+    {
+      "trait_type": "Location",
+      "value": "インド, アーグラ"
+    },
+    {
+      "trait_type": "Number of Attractions",
+      "value": 3
+    },
+    {
+      "trait_type": "Attraction 1",
+      "value": "庭園"
+    },
+    {
+      "trait_type": "Attraction 2",
+      "value": "大理石の彫刻"
+    },
+    {
+      "trait_type": "Attraction 3",
+      "value": "歴史的ガイドツアー"
+    }
+  ]
 }
