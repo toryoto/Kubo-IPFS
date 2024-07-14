@@ -1,0 +1,28 @@
+{
+  "name": "エッフェル塔",
+  "description": "パリのシンボルであるエッフェル塔は、1889年に建設された鉄製の塔で、毎年数百万人の観光客が訪れます。",
+  "image": "ipfs://QmVyqRCjHiQFiKsTdQAmmJA4TRL8STs5yhAcKADyDqew1g",
+  "external_url": "https://example.com/attractions/エッフェル塔",
+  "attributes": [
+    {
+      "trait_type": "Location",
+      "value": "フランス, パリ"
+    },
+    {
+      "trait_type": "Number of Attractions",
+      "value": 3
+    },
+    {
+      "trait_type": "Attraction 1",
+      "value": "展望台"
+    },
+    {
+      "trait_type": "Attraction 2",
+      "value": "レストラン"
+    },
+    {
+      "trait_type": "Attraction 3",
+      "value": "夜のライトアップ"
+    }
+  ]
+}

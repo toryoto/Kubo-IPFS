@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFTメタデータ表示</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        input, button { margin: 10px 0; padding: 5px; }
+        button { cursor: pointer; }
+        #error { color: red; }
+        #result { border: 1px solid #ddd; padding: 15px; margin-top: 20px; }
+        #rawData { white-space: pre-wrap; word-wrap: break-word; }
+        #nftImage { max-width: 100%; height: auto; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NFTメタデータ表示</h1>
+        <a href="/ipfs/QmT562ivx77mzovrZELhojmBa89APnRZKmwVS97ewjNpqz/">Moved Permanently</a>
+        <input type="text" id="cidInput" placeholder="IPFSのCIDを入力">
+        <button id="fetchButton">データを取得</button>
+        <div id="error"></div>
+        <div id="result"></div>
+        <h3>生データ:</h3>
+        <pre id="rawData"></pre>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        $('#fetchButton').click(function() {
+            var cid = $('#cidInput').val();
+            $('#error').text('');
+            $('#result').empty();
+            $('#rawData').empty();
+
+            $.ajax({
+                url: `http://localhost:8080/ipfs/${cid}`,
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // 生データを表示
+                    $('#rawData').text(JSON.stringify(data, null, 2));
+
+                    // 画像URLの処理
+                    var imageUrl = data.image.replace('ipfs:/', 'http://localhost:8080/ipfs');
+
+                    // 整形されたデータを表示
+                    var html = `
+                        <h2>${data.name}</h2>
+                        <p><strong>説明:</strong> ${data.description}</p>
+                        <p><strong>画像:</strong></p>
+                        <img id="nftImage" src="${imageUrl}" alt="${data.name}" />
+                        <p><strong>External URL:</strong> <a href="${data.external_url}" target="_blank">${data.external_url}</a></p>
+                        <h3>属性:</h3>
+                        <ul>
+                    `;
+
+                    data.attributes.forEach(function(attr) {
+                        html += `<li><strong>${attr.trait_type}:</strong> ${attr.value}</li>`;
+                    });
+
+                    html += '</ul>';
+
+                    $('#result').html(html);
+
+                    // 画像読み込みエラーの処理
+                    $('#nftImage').on('error', function() {
+                        $(this).attr('src', 'https://via.placeholder.com/400x400?text=Image+Not+Found');
+                        $('#error').text('画像の読み込みに失敗しました。');
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#error').text('データの取得に失敗しました: ' + textStatus);
+                    console.error('Error details:', errorThrown);
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
